@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        Contacto | Vinta Travel
+    </title>
+
+
+    <meta name="description"
+          content="Contacta a Vinta Travel para resolver dudas sobre destinos, paquetes y reservaciones y recibe apoyo para planear tu próximo viaje.">
+
+
+    <meta name="keywords"
+          content="contacto Vinta Travel, agencia de viajes, reservaciones, paquetes turísticos, atención al viajero">
+
+
+    <meta name="author"
+          content="Mariana Marín, Cynthia Sánchez">
+
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="styles.css">
+
+
+    <!-- =====================================================
+         ESTILOS DE COMPONENTES
+    ====================================================== -->
+
+    <style>
+
+        .componentes-contacto {
+
+            padding: 60px 0;
+
+        }
+
+
+        .titulo-componente {
+
+            text-align: center;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .subtitulo-componente {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: 0 auto 30px;
+
+            color: #6c757d;
+
+        }
+
+
+        /* MODAL */
+
+        .vinta-modal .modal-content {
+
+            border: 0;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+        }
+
+
+        .vinta-modal .modal-header {
+
+            background: #075985;
+
+            color: white;
+
+            border: 0;
+
+        }
+
+
+        .vinta-modal .btn-close {
+
+            filter: brightness(0) invert(1);
+
+        }
+
+
+        .vinta-modal .modal-body {
+
+            padding: 30px;
+
+        }
+
+
+        /* TABS */
+
+        .contacto-tabs .nav-pills {
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .contacto-tabs .nav-link {
+
+            color: #075985;
+
+            font-weight: 600;
+
+            border-radius: 30px;
+
+        }
+
+
+        .contacto-tabs .nav-link.active {
+
+            background: #075985;
+
+            color: white;
+
+        }
+
+
+        .contacto-tab-content {
+
+            border: 1px solid #dbe7ee;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            background: white;
+
+        }
+
+
+        /* PROGRESS */
+
+        .progreso-contacto {
+
+            background: #f4fafc;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+        }
+
+
+        .progreso-item {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .progreso-item:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .progreso-label {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .progreso-contacto .progress {
+
+            height: 18px;
+
+            border-radius: 20px;
+
+            background: #dfeef2;
+
+        }
+
+
+        .progreso-contacto .progress-bar {
+
+            background: #16865a;
+
+        }
+
+
+        @media (max-width: 767px) {
+
+            .componentes-contacto {
+
+                padding: 40px 0;
+
+            }
+
+
+            .contacto-tab-content,
+            .progreso-contacto {
+
+                padding: 20px;
+
+            }
+
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+
+
+            <div class="container">
+
+
+                <a class="navbar-brand d-flex align-items-center fw-bold"
+                   href="index.html">
+
+
+                    <img src="logo.jpeg"
+                         alt="Logo de Vinta Travel"
+                         width="50"
+                         height="50"
+                         class="rounded-circle me-2">
+
+
+                    Vinta Travel
+
+
+                </a>
+
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#menuVinta"
+                        aria-controls="menuVinta"
+                        aria-label="Abrir menú">
+
+
+                    <span class="navbar-toggler-icon"></span>
+
+
+                </button>
+
+
+                <div class="offcanvas offcanvas-end text-bg-primary"
+                     tabindex="-1"
+                     id="menuVinta"
+                     aria-labelledby="menuVintaLabel">
+
+
+                    <div class="offcanvas-header">
+
+
+                        <h5 class="offcanvas-title"
+                            id="menuVintaLabel">
+
+
+                            Vinta Travel
+
+
+                        </h5>
+
+
+                        <button type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Cerrar">
+                        </button>
+
+
+                    </div>
+
+
+                    <div class="offcanvas-body">
+
+
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="index.html">
+                                    Inicio
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="destinos.html">
+                                    Destinos
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="paquetes.html">
+                                    Paquetes
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="reservaciones.html">
+                                    Reservaciones
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="blog.html">
+                                    Blog
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link active"
+                                   aria-current="page"
+                                   href="contacto.html">
+                                    Contacto
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="carrito.html">
+
+                                    🛒 Carrito
+
+                                    <span class="badge bg-danger contador-carrito">
+                                        0
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item ms-lg-2">
+
+                                <a class="btn btn-light text-primary fw-semibold"
+                                   href="login.html">
+                                    Iniciar sesión
+                                </a>
+
+                            </li>
+
+
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </nav>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main>
+
+
+
+        <!-- ENCABEZADO -->
+
+        <section class="py-5 bg-light">
+
+
+            <div class="container text-center">
+
+
+                <span class="badge bg-info text-dark mb-3">
+
+                    ESTAMOS PARA AYUDARTE
+
+                </span>
+
+
+                <h1 class="display-5 fw-bold">
+
+                    Contacto
+
+                </h1>
+
+
+                <p class="lead text-muted">
+
+                    Estamos aquí para ayudarte a planear tu próximo viaje.
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FORMULARIO E INFORMACIÓN
+        ====================================================== -->
+
+        <section class="py-5">
+
+
+            <div class="container">
+
+
+                <div class="row g-5">
+
+
+
+                    <!-- FORMULARIO -->
+
+                    <div class="col-12 col-lg-7">
+
+
+                        <div class="card border-0 shadow-sm">
+
+
+                            <div class="card-body p-4 p-md-5">
+
+
+                                <h2 class="h3 fw-bold mb-4">
+
+                                    Envíanos un mensaje
+
+                                </h2>
+
+
+
+                                <!-- =================================================
+                                     FORMULARIO CONECTADO A FORMSPREE
+                                ================================================== -->
+
+                                <form id="formContactoFormspree"
+                                      action="https://formspree.io/f/xwlppnjb"
+                                      method="POST">
+
+
+                                    <!-- COPIA AL CORREO DEL INTEGRANTE -->
+
+                                    <input type="hidden"
+                                           name="_cc"
+                                           value="c.sanchez060@ebc.edu.mx">
+
+
+                                    <!-- ASUNTO AUTOMÁTICO -->
+
+                                    <input type="hidden"
+                                           name="_subject"
+                                           value="Nuevo mensaje desde Vinta Travel">
+
+
+
+                                    <!-- NOMBRE -->
+
+                                    <div class="mb-3">
+
+
+                                        <label for="nombre"
+                                               class="form-label">
+
+                                            Nombre completo:
+
+                                        </label>
+
+
+                                        <input type="text"
+                                               id="nombre"
+                                               name="name"
+                                               class="form-control"
+                                               placeholder="Escribe tu nombre"
+                                               required>
+
+
+                                    </div>
+
+
+
+                                    <!-- CORREO -->
+
+                                    <div class="mb-3">
+
+
+                                        <label for="correo"
+                                               class="form-label">
+
+                                            Correo electrónico:
+
+                                        </label>
+
+
+                                        <input type="email"
+                                               id="correo"
+                                               name="email"
+                                               class="form-control"
+                                               placeholder="ejemplo@correo.com"
+                                               required>
+
+
+                                    </div>
+
+
+
+                                    <!-- ASUNTO -->
+
+                                    <div class="mb-3">
+
+
+                                        <label for="asunto"
+                                               class="form-label">
+
+                                            Asunto:
+
+                                        </label>
+
+
+                                        <select id="asunto"
+                                                name="subject"
+                                                class="form-select"
+                                                required>
+
+
+                                            <option value="Reservaciones">
+                                                Reservaciones
+                                            </option>
+
+
+                                            <option value="Destinos">
+                                                Destinos
+                                            </option>
+
+
+                                            <option value="Paquetes">
+                                                Paquetes
+                                            </option>
+
+
+                                            <option value="Otro">
+                                                Otro
+                                            </option>
+
+
+                                        </select>
+
+
+                                    </div>
+
+
+
+                                    <!-- MENSAJE -->
+
+                                    <div class="mb-4">
+
+
+                                        <label for="mensaje"
+                                               class="form-label">
+
+                                            Mensaje:
+
+                                        </label>
+
+
+                                        <textarea id="mensaje"
+                                                  name="message"
+                                                  class="form-control"
+                                                  rows="5"
+                                                  placeholder="Escribe tu mensaje..."
+                                                  required></textarea>
+
+
+                                    </div>
+
+
+
+                                    <button type="submit"
+                                            class="btn btn-primary w-100">
+
+                                        ENVIAR MENSAJE
+
+                                    </button>
+
+
+                                </form>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         INFORMACIÓN DE CONTACTO
+                    ================================================== -->
+
+                    <div class="col-12 col-lg-5">
+
+
+                        <div class="card border-0 shadow-sm h-100">
+
+
+                            <div class="card-body p-4 p-md-5">
+
+
+                                <span class="badge bg-primary mb-3">
+
+                                    CONTACTA CON NOSOTROS
+
+                                </span>
+
+
+                                <h2 class="h3 fw-bold mb-4">
+
+                                    Información de contacto
+
+                                </h2>
+
+
+
+                                <div class="list-group list-group-flush">
+
+
+                                    <div class="list-group-item px-0">
+
+                                        📱 WhatsApp
+
+                                    </div>
+
+
+                                    <div class="list-group-item px-0">
+
+                                        📸 Instagram
+
+                                    </div>
+
+
+                                    <div class="list-group-item px-0">
+
+                                        👍 Facebook
+
+                                    </div>
+
+
+                                    <div class="list-group-item px-0">
+
+                                        ✉️ Correo electrónico
+
+                                    </div>
+
+
+                                    <div class="list-group-item px-0">
+
+                                        🏢 Oficina
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <div class="alert alert-info mt-4"
+                                     role="alert">
+
+
+                                    <strong>
+
+                                        ¿Tienes dudas?
+
+                                    </strong>
+
+
+                                    Nuestro equipo está listo para ayudarte
+                                    a encontrar la mejor opción para tu viaje.
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MAPA DE GOOGLE MAPS
+             AVANCE 12
+        ====================================================== -->
+
+        <section class="py-5 bg-light">
+
+
+            <div class="container">
+
+
+                <div class="text-center mb-4">
+
+
+                    <h2>
+
+                        Encuéntranos
+
+                    </h2>
+
+
+                    <p class="text-muted mx-auto"
+                       style="max-width: 700px;">
+
+                        Visita nuestra oficina y conoce más sobre
+                        nuestros destinos, paquetes y opciones de viaje.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="ratio ratio-4x3 shadow rounded overflow-hidden">
+
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.0070248607467!2d-99.1791961!3d19.3688485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff8e2e9a2a87%3A0x23c6bca0ae619a4e!2sJos%C3%A9%20Mar%C3%ADa%20Rico%2068%2C%20Actipan%2C%20Benito%20Ju%C3%A1rez%2C%2003230%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1789480677215!5m2!1ses!2smx"
+                        title="Ubicación de Vinta Travel"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+
+
+                </div>
+
+
+
+                <p class="text-center text-muted small mt-3">
+
+                    José María Rico 68, Actipan, Benito Juárez,
+                    03230 Ciudad de México, CDMX.
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             COMPONENTES INTERACTIVOS
+        ====================================================== -->
+
+        <section class="componentes-contacto">
+
+
+            <div class="container">
+
+
+
+                <!-- MODAL -->
+
+                <div class="text-center mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Atención Vinta Travel
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Conoce cómo podemos ayudarte antes,
+                        durante y después de tu viaje.
+
+                    </p>
+
+
+                    <button class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalContacto">
+
+                        Ver información
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="modal fade vinta-modal"
+                     id="modalContacto"
+                     tabindex="-1"
+                     aria-hidden="true">
+
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+
+                        <div class="modal-content">
+
+
+                            <div class="modal-header">
+
+
+                                <h2 class="modal-title fs-5">
+
+                                    📞 Atención al viajero
+
+                                </h2>
+
+
+                                <button class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Cerrar">
+                                </button>
+
+
+                            </div>
+
+
+                            <div class="modal-body">
+
+
+                                <p>
+
+                                    En Vinta Travel estamos disponibles
+                                    para orientarte sobre tus opciones de viaje.
+
+                                </p>
+
+
+                                <ul>
+
+                                    <li>
+                                        Información sobre destinos.
+                                    </li>
+
+                                    <li>
+                                        Información sobre paquetes.
+                                    </li>
+
+                                    <li>
+                                        Apoyo con reservaciones.
+                                    </li>
+
+                                    <li>
+                                        Atención a preguntas y solicitudes.
+                                    </li>
+
+                                </ul>
+
+
+                                <p class="mb-0">
+
+                                    Escríbenos mediante cualquiera
+                                    de nuestros canales de contacto.
+
+                                </p>
+
+
+                            </div>
+
+
+                            <div class="modal-footer">
+
+
+                                <a href="mailto:contacto@vintatravel.com"
+                                   class="btn btn-primary">
+
+                                    Enviar correo
+
+                                </a>
+
+
+                                <button class="btn btn-secondary"
+                                        data-bs-dismiss="modal">
+
+                                    Cerrar
+
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PREGUNTAS FRECUENTES
+                ================================================== -->
+
+                <div class="mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Preguntas frecuentes
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Encuentra respuestas antes de contactarnos.
+
+                    </p>
+
+
+
+                    <div class="accordion"
+                         id="contactoAccordion">
+
+
+
+                        <!-- PREGUNTA 1 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#cp1">
+
+                                    ¿Qué tipo de consultas puedo realizar?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="cp1"
+                                 class="accordion-collapse collapse show"
+                                 data-bs-parent="#contactoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Puedes consultar sobre destinos,
+                                    paquetes, reservaciones y otras opciones
+                                    relacionadas con tu viaje.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- PREGUNTA 2 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#cp2">
+
+                                    ¿Cómo puedo solicitar información sobre un paquete?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="cp2"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#contactoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Selecciona “Paquetes” en el formulario
+                                    y escribe los detalles de la información
+                                    que necesitas.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- PREGUNTA 3 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#cp3">
+
+                                    ¿Puedo preguntar sobre una reservación?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="cp3"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#contactoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Sí. Selecciona “Reservaciones” como asunto
+                                    y explica tu consulta en el mensaje.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- PREGUNTA 4 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#cp4">
+
+                                    ¿Qué canales de contacto tiene Vinta Travel?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="cp4"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#contactoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Puedes encontrar opciones como WhatsApp,
+                                    Instagram, Facebook, correo electrónico
+                                    y oficina.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TABS / PILLS
+                ================================================== -->
+
+                <div class="contacto-tabs mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Formas de contacto
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Selecciona un canal para conocer su función.
+
+                    </p>
+
+
+                    <ul class="nav nav-pills"
+                        role="tablist">
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link active"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#whatsapp"
+                                    type="button">
+
+                                WhatsApp
+
+                            </button>
+
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#redes"
+                                    type="button">
+
+                                Redes sociales
+
+                            </button>
+
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#correoContacto"
+                                    type="button">
+
+                                Correo
+
+                            </button>
+
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#oficina"
+                                    type="button">
+
+                                Oficina
+
+                            </button>
+
+
+                        </li>
+
+
+                    </ul>
+
+
+
+                    <div class="tab-content contacto-tab-content">
+
+
+
+                        <!-- WHATSAPP -->
+
+                        <div class="tab-pane fade show active"
+                             id="whatsapp">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                📱 WhatsApp
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Ideal para realizar preguntas rápidas
+                                sobre destinos, paquetes y reservaciones.
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <!-- REDES -->
+
+                        <div class="tab-pane fade"
+                             id="redes">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                📸 Redes sociales
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Síguenos en Instagram y Facebook
+                                para conocer novedades, destinos
+                                y contenido relacionado con viajes.
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <!-- CORREO -->
+
+                        <div class="tab-pane fade"
+                             id="correoContacto">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                ✉️ Correo electrónico
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Puedes utilizar el correo para realizar
+                                consultas más detalladas o enviar solicitudes.
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <!-- OFICINA -->
+
+                        <div class="tab-pane fade"
+                             id="oficina">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                🏢 Oficina
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                La oficina es una opción para recibir
+                                atención de manera presencial.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PROGRESS
+                ================================================== -->
+
+                <h2 class="titulo-componente">
+
+                    Servicios de atención
+
+                </h2>
+
+
+                <p class="subtitulo-componente">
+
+                    Estos indicadores representan nuestras principales
+                    áreas de atención al viajero.
+
+                </p>
+
+
+
+                <div class="progreso-contacto">
+
+
+
+                    <!-- DESTINOS -->
+
+                    <div class="progreso-item">
+
+
+                        <div class="progreso-label">
+
+
+                            <span>
+                                Información de destinos
+                            </span>
+
+
+                            <span>
+                                95%
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="progress">
+
+
+                            <div class="progress-bar"
+                                 role="progressbar"
+                                 style="width:95%"
+                                 aria-valuenow="95"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+
+                                95%
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- PAQUETES -->
+
+                    <div class="progreso-item">
+
+
+                        <div class="progreso-label">
+
+
+                            <span>
+                                Información de paquetes
+                            </span>
+
+
+                            <span>
+                                90%
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="progress">
+
+
+                            <div class="progress-bar"
+                                 role="progressbar"
+                                 style="width:90%"
+                                 aria-valuenow="90"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+
+                                90%
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- RESERVACIONES -->
+
+                    <div class="progreso-item">
+
+
+                        <div class="progreso-label">
+
+
+                            <span>
+                                Atención de reservaciones
+                            </span>
+
+
+                            <span>
+                                85%
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="progress">
+
+
+                            <div class="progress-bar"
+                                 role="progressbar"
+                                 style="width:85%"
+                                 aria-valuenow="85"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+
+                                85%
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- CONSULTAS -->
+
+                    <div class="progreso-item">
+
+
+                        <div class="progreso-label">
+
+
+                            <span>
+                                Consultas generales
+                            </span>
+
+
+                            <span>
+                                90%
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="progress">
+
+
+                            <div class="progress-bar"
+                                 role="progressbar"
+                                 style="width:90%"
+                                 aria-valuenow="90"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+
+                                90%
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="bg-dark text-white py-4 mt-5">
+
+
+        <div class="container">
+
+
+            <div class="row g-4">
+
+
+                <div class="col-12 col-md-6">
+
+
+                    <h5 class="fw-bold">
+
+                        Vinta Travel
+
+                    </h5>
+
+
+                    <p class="mb-0">
+
+                        ¡Tu viaje, tu mejor historia!
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="col-12 col-md-6 text-md-end">
+
+
+                    <h6 class="fw-semibold">
+
+                        Síguenos
+
+                    </h6>
+
+
+                    <p class="mb-0">
+
+                        WhatsApp &nbsp; | &nbsp;
+                        Instagram &nbsp; | &nbsp;
+                        Facebook
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <hr>
+
+
+            <p class="text-center mb-0 small">
+
+                © 2026 Vinta Travel.
+                Todos los derechos reservados.
+
+            </p>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- JavaScript Vinta Travel -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

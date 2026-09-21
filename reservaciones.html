@@ -1,0 +1,1613 @@
+```html
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        Reservaciones de viajes | Vinta Travel
+    </title>
+
+
+    <meta name="description"
+          content="Solicita tu reservación con Vinta Travel. Elige destino, fechas, número de personas y presupuesto para comenzar a planear tu viaje.">
+
+
+    <meta name="keywords"
+          content="reservaciones de viajes, reservar viaje, destinos, viajes, Vinta Travel">
+
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="styles.css">
+
+
+    <!-- =====================================================
+         ESTILOS DE LOS COMPONENTES NUEVOS
+    ====================================================== -->
+
+    <style>
+
+        .componentes-reservaciones {
+            padding: 60px 0;
+        }
+
+
+        .titulo-componente {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+
+        .subtitulo-componente {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #6c757d;
+        }
+
+
+        /* MODAL */
+
+        .vinta-modal .modal-content {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+
+        .vinta-modal .modal-header {
+            background: #075985;
+            color: white;
+            border: none;
+        }
+
+
+        .vinta-modal .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+
+        .vinta-modal .modal-body {
+            padding: 30px;
+        }
+
+
+        /* TABS */
+
+        .reservaciones-tabs .nav-pills {
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+
+        .reservaciones-tabs .nav-link {
+            color: #075985;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+
+        .reservaciones-tabs .nav-link.active {
+            background: #075985;
+            color: white;
+        }
+
+
+        .reservaciones-tab-content {
+            border: 1px solid #dbe7ee;
+            border-radius: 18px;
+            padding: 25px;
+            background: white;
+        }
+
+
+        /* PROGRESS */
+
+        .progreso-reservacion {
+            background: #f4fafc;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+
+        .progreso-item {
+            margin-bottom: 22px;
+        }
+
+
+        .progreso-item:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .progreso-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+
+        .progreso-reservacion .progress {
+            height: 18px;
+            border-radius: 20px;
+            background: #dfeef2;
+        }
+
+
+        .progreso-reservacion .progress-bar {
+            background: #16865a;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .componentes-reservaciones {
+                padding: 40px 0;
+            }
+
+
+            .reservaciones-tab-content,
+            .progreso-reservacion {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+
+            <div class="container">
+
+
+                <a class="navbar-brand d-flex align-items-center fw-bold"
+                   href="index.html">
+
+                    <img src="logo.jpeg"
+                         alt="Logo Vinta Travel"
+                         width="50"
+                         height="50"
+                         class="rounded-circle me-2">
+
+                    Vinta Travel
+
+                </a>
+
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#menuVinta">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+                <div class="offcanvas offcanvas-end text-bg-primary"
+                     tabindex="-1"
+                     id="menuVinta">
+
+
+                    <div class="offcanvas-header">
+
+                        <h5 class="offcanvas-title">
+
+                            Vinta Travel
+
+                        </h5>
+
+
+                        <button type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="offcanvas">
+                        </button>
+
+                    </div>
+
+
+                    <div class="offcanvas-body">
+
+                        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="index.html">
+
+                                    Inicio
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="destinos.html">
+
+                                    Destinos
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="paquetes.html">
+
+                                    Paquetes
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link active"
+                                   href="reservaciones.html">
+
+                                    Reservaciones
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="blog.html">
+
+                                    Blog
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="contacto.html">
+
+                                    Contacto
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="carrito.html">
+
+                                    🛒 Carrito
+
+                                    <span class="badge bg-danger contador-carrito">
+                                        0
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item ms-lg-2">
+
+                                <a class="btn btn-light text-primary fw-semibold"
+                                   href="login.html">
+
+                                    Iniciar sesión
+
+                                </a>
+
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- ENCABEZADO -->
+
+        <section class="py-5 bg-light">
+
+            <div class="container text-center">
+
+
+                <span class="badge bg-info text-dark mb-3">
+
+                    RESERVA TU EXPERIENCIA
+
+                </span>
+
+
+                <h1 class="display-5 fw-bold">
+
+                    Reservaciones
+
+                </h1>
+
+
+                <p class="lead text-muted">
+
+                    Completa los datos para comenzar a planear tu viaje.
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FORMULARIO
+        ====================================================== -->
+
+        <section class="py-5">
+
+            <div class="container">
+
+
+                <!-- ALERT -->
+
+                <div class="alert alert-info alert-dismissible fade show shadow-sm"
+                     role="alert">
+
+
+                    <strong>
+                        ¡Importante!
+                    </strong>
+
+                    Recuerda tener a la mano tu identificación,
+                    datos de contacto y fechas de viaje antes de
+                    realizar tu reservación.
+
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Cerrar">
+                    </button>
+
+
+                </div>
+
+
+                <div class="row g-5">
+
+
+                    <!-- =================================================
+                         FORMULARIO
+                    ================================================== -->
+
+                    <div class="col-lg-7">
+
+
+                        <div class="card border-0 shadow-sm">
+
+
+                            <div class="card-body p-4 p-md-5">
+
+
+                                <h2 class="h3 fw-bold mb-4">
+
+                                    Datos de reservación
+
+                                </h2>
+
+
+                                <!--
+                                    ID NECESARIO PARA JAVASCRIPT
+                                -->
+
+                                <form id="formReservacion"
+                                      novalidate>
+
+
+                                    <!-- =================================
+                                         NOMBRE
+                                    ================================== -->
+
+                                    <div class="mb-3">
+
+
+                                        <label for="nombre"
+                                               class="form-label">
+
+                                            Nombre completo
+
+                                        </label>
+
+
+                                        <input type="text"
+                                               id="nombre"
+                                               class="form-control"
+                                               required>
+
+
+                                        <div class="invalid-feedback">
+
+                                            Escribe tu nombre completo.
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         CORREO
+                                    ================================== -->
+
+                                    <div class="mb-3">
+
+
+                                        <label for="correo"
+                                               class="form-label">
+
+                                            Correo electrónico
+
+                                        </label>
+
+
+                                        <input type="email"
+                                               id="correo"
+                                               class="form-control"
+                                               required>
+
+
+                                        <div class="invalid-feedback">
+
+                                            Escribe un correo electrónico válido.
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         DESTINO Y PERSONAS
+                                    ================================== -->
+
+                                    <div class="row">
+
+
+                                        <!-- DESTINO -->
+
+                                        <div class="col-md-6 mb-3">
+
+
+                                            <label for="destino"
+                                                   class="form-label">
+
+                                                Destino
+
+                                            </label>
+
+
+                                            <select id="destino"
+                                                    class="form-select"
+                                                    required>
+
+
+                                                <option value=""
+                                                        selected>
+
+                                                    Selecciona un destino
+
+                                                </option>
+
+
+                                                <option value="Roma">
+
+                                                    Roma
+
+                                                </option>
+
+
+                                                <option value="París">
+
+                                                    París
+
+                                                </option>
+
+
+                                                <option value="Tokio">
+
+                                                    Tokio
+
+                                                </option>
+
+
+                                            </select>
+
+
+                                            <div class="invalid-feedback">
+
+                                                Selecciona un destino.
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <!-- PERSONAS -->
+
+                                        <div class="col-md-6 mb-3">
+
+
+                                            <label for="personas"
+                                                   class="form-label">
+
+                                                Número de personas
+
+                                            </label>
+
+
+                                            <input type="number"
+                                                   id="personas"
+                                                   class="form-control"
+                                                   min="1"
+                                                   value="1"
+                                                   required>
+
+
+                                            <div class="invalid-feedback">
+
+                                                Indica cuántas personas viajarán.
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         FECHAS
+                                    ================================== -->
+
+                                    <div class="row">
+
+
+                                        <!-- SALIDA -->
+
+                                        <div class="col-md-6 mb-3">
+
+
+                                            <label for="salida"
+                                                   class="form-label">
+
+                                                Fecha de salida
+
+                                            </label>
+
+
+                                            <input type="date"
+                                                   id="salida"
+                                                   class="form-control"
+                                                   required>
+
+
+                                            <div class="invalid-feedback">
+
+                                                Selecciona la fecha de salida.
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <!-- REGRESO -->
+
+                                        <div class="col-md-6 mb-4">
+
+
+                                            <label for="regreso"
+                                                   class="form-label">
+
+                                                Fecha de regreso
+
+                                            </label>
+
+
+                                            <input type="date"
+                                                   id="regreso"
+                                                   class="form-control"
+                                                   required>
+
+
+                                            <div class="invalid-feedback">
+
+                                                Selecciona la fecha de regreso.
+
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         PAQUETE SELECCIONADO
+                                         Se llena con JavaScript
+                                    ================================== -->
+
+                                    <input type="hidden"
+                                           id="paqueteSeleccionado">
+
+
+                                    <!-- =================================
+                                         BOTÓN
+                                    ================================== -->
+
+                                    <button type="submit"
+                                            class="btn btn-primary w-100">
+
+                                        SOLICITAR RESERVACIÓN
+
+                                    </button>
+
+
+                                </form>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         INFORMACIÓN DEL VIAJE
+                    ================================================== -->
+
+                    <aside class="col-lg-5">
+
+
+                        <!-- =============================================
+                             RESUMEN DINÁMICO
+                             JAVASCRIPT COLOCARÁ AQUÍ EL DESTINO,
+                             PAQUETE, PRECIO E ITINERARIO
+                        ============================================== -->
+
+                        <div id="resumenItinerario"
+                             class="mb-4">
+                        </div>
+
+
+                        <div class="card border-0 shadow-sm">
+
+
+                            <div class="card-body p-4">
+
+
+                                <h2 class="h4 fw-bold mb-3">
+
+                                    Información de tu viaje
+
+                                </h2>
+
+
+                                <div class="list-group">
+
+
+                                    <div class="list-group-item">
+
+                                        <strong>
+
+                                            Destino
+
+                                        </strong>
+
+                                        <br>
+
+                                        Selecciona tu destino favorito.
+
+                                    </div>
+
+
+                                    <div class="list-group-item">
+
+                                        <strong>
+
+                                            Paquete
+
+                                        </strong>
+
+                                        <br>
+
+                                        Elige entre nuestras experiencias
+                                        disponibles.
+
+                                    </div>
+
+
+                                    <div class="list-group-item">
+
+                                        <strong>
+
+                                            Fechas
+
+                                        </strong>
+
+                                        <br>
+
+                                        Indica cuándo quieres viajar.
+
+                                    </div>
+
+
+                                    <div class="list-group-item">
+
+                                        <strong>
+
+                                            Personas
+
+                                        </strong>
+
+                                        <br>
+
+                                        Especifica cuántas personas viajarán.
+
+                                    </div>
+
+
+                                    <div class="list-group-item">
+
+                                        <strong>
+
+                                            Confirmación
+
+                                        </strong>
+
+                                        <br>
+
+                                        Nuestro equipo se pondrá en contacto
+                                        contigo.
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="alert alert-success mt-4 mb-0"
+                                     role="alert">
+
+
+                                    <strong>
+
+                                        ¡Tu viaje comienza aquí!
+
+                                    </strong>
+
+
+                                    Estamos listos para ayudarte a crear
+                                    una experiencia inolvidable.
+
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMPONENTES INTERACTIVOS
+        ====================================================== -->
+
+        <section class="componentes-reservaciones">
+
+
+            <div class="container">
+
+
+                <!-- =================================================
+                     1. MODAL
+                ================================================== -->
+
+                <div class="modal fade vinta-modal"
+                     id="modalReservacion"
+                     tabindex="-1"
+                     aria-hidden="true">
+
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+
+                        <div class="modal-content">
+
+
+                            <div class="modal-header">
+
+
+                                <h2 class="modal-title fs-5">
+
+                                    ✈️ Solicitud de reservación
+
+                                </h2>
+
+
+                                <button type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Cerrar">
+                                </button>
+
+
+                            </div>
+
+
+                            <div class="modal-body">
+
+
+                                <p>
+
+                                    Tu solicitud está lista para continuar.
+
+                                </p>
+
+
+                                <ul>
+
+
+                                    <li>
+
+                                        Verifica que tus datos sean correctos.
+
+                                    </li>
+
+
+                                    <li>
+
+                                        Confirma el destino seleccionado.
+
+                                    </li>
+
+
+                                    <li>
+
+                                        Revisa tus fechas de viaje.
+
+                                    </li>
+
+
+                                    <li>
+
+                                        Confirma el número de personas.
+
+                                    </li>
+
+
+                                </ul>
+
+
+                                <p class="mb-0">
+
+                                    Nuestro equipo podrá ayudarte con
+                                    los siguientes pasos de tu viaje.
+
+                                </p>
+
+
+                            </div>
+
+
+                            <div class="modal-footer">
+
+
+                                <a href="carrito.html"
+                                   class="btn btn-primary">
+
+                                    Continuar
+
+                                </a>
+
+
+                                <button type="button"
+                                        class="btn btn-secondary"
+                                        data-bs-dismiss="modal">
+
+                                    Revisar datos
+
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     2. ACORDEÓN
+                ================================================== -->
+
+                <div class="mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Preguntas frecuentes
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Resuelve algunas dudas antes de enviar
+                        tu solicitud de reservación.
+
+                    </p>
+
+
+                    <div class="accordion"
+                         id="reservacionesAccordion">
+
+
+                        <!-- PREGUNTA 1 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#reservaPregunta1">
+
+                                    ¿Qué datos necesito para reservar?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="reservaPregunta1"
+                                 class="accordion-collapse collapse show"
+                                 data-bs-parent="#reservacionesAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Necesitas proporcionar tu nombre,
+                                    correo electrónico, destino, número
+                                    de personas y fechas del viaje.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- PREGUNTA 2 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#reservaPregunta2">
+
+                                    ¿Puedo modificar las fechas después?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="reservaPregunta2"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#reservacionesAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Puedes revisar tus fechas antes de
+                                    enviar la solicitud y contactar al
+                                    equipo si necesitas realizar cambios.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- PREGUNTA 3 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#reservaPregunta3">
+
+                                    ¿Cuándo queda confirmada mi reservación?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="reservaPregunta3"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#reservacionesAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    La solicitud inicia el proceso.
+                                    Después se revisan los datos y se
+                                    continúa con la confirmación.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- PREGUNTA 4 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#reservaPregunta4">
+
+                                    ¿Puedo reservar para más de una persona?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="reservaPregunta4"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#reservacionesAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Sí. En el formulario puedes indicar
+                                    cuántas personas viajarán.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     3. TABS / PILLS
+                ================================================== -->
+
+                <div class="reservaciones-tabs mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Conoce el proceso de reservación
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Selecciona cada etapa para conocer
+                        qué debes hacer.
+
+                    </p>
+
+
+                    <ul class="nav nav-pills"
+                        role="tablist">
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link active"
+                                    type="button"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#pasoDatos">
+
+                                Datos
+
+                            </button>
+
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    type="button"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#pasoViaje">
+
+                                Viaje
+
+                            </button>
+
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    type="button"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#pasoConfirmacion">
+
+                                Confirmación
+
+                            </button>
+
+
+                        </li>
+
+
+                    </ul>
+
+
+                    <div class="tab-content reservaciones-tab-content">
+
+
+                        <!-- DATOS -->
+
+                        <div class="tab-pane fade show active"
+                             id="pasoDatos">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                👤 Datos personales
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Escribe tu nombre y correo electrónico
+                                para poder identificar tu solicitud.
+
+                            </p>
+
+
+                        </div>
+
+
+                        <!-- VIAJE -->
+
+                        <div class="tab-pane fade"
+                             id="pasoViaje">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                🌎 Información del viaje
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Selecciona el destino, las fechas
+                                y el número de personas que viajarán.
+
+                            </p>
+
+
+                        </div>
+
+
+                        <!-- CONFIRMACIÓN -->
+
+                        <div class="tab-pane fade"
+                             id="pasoConfirmacion">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                ✅ Confirmación
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Revisa los datos y continúa con
+                                el proceso de reservación.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     4. PROGRESS BAR
+                ================================================== -->
+
+                <div>
+
+
+                    <h2 class="titulo-componente">
+
+                        Proceso de tu reservación
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Estas barras muestran las etapas principales
+                        para completar tu viaje.
+
+                    </p>
+
+
+                    <div class="progreso-reservacion">
+
+
+                        <!-- DATOS -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Datos personales
+                                </span>
+
+                                <span>
+                                    100%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 100%;"
+                                     aria-valuenow="100"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    100%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- DESTINO -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Selección del destino
+                                </span>
+
+                                <span>
+                                    80%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 80%;"
+                                     aria-valuenow="80"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    80%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- FECHAS -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Fechas del viaje
+                                </span>
+
+                                <span>
+                                    60%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 60%;"
+                                     aria-valuenow="60"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    60%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- CONFIRMACIÓN -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Confirmación
+                                </span>
+
+                                <span>
+                                    30%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 30%;"
+                                     aria-valuenow="30"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    30%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="bg-dark text-white py-4">
+
+
+        <div class="container text-center">
+
+
+            <h5 class="fw-bold">
+
+                Vinta Travel
+
+            </h5>
+
+
+            <p>
+
+                ¡Tu viaje, tu mejor historia!
+
+            </p>
+
+
+            <p class="small mb-0">
+
+                © 2026 Vinta Travel.
+                Todos los derechos reservados.
+
+            </p>
+
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- JavaScript Vinta Travel -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+```

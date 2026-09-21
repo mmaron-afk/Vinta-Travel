@@ -1,0 +1,1515 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrito de compras | Vinta Travel</title>
+
+    <meta name="description"
+          content="Revisa los paquetes y servicios seleccionados en tu carrito de Vinta Travel antes de continuar con tu reservación.">
+
+    <meta name="keywords"
+          content="carrito de viajes, paquetes turísticos, reservaciones, Vinta Travel">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="styles.css">
+
+    <meta name="description"
+          content="Carrito de compras de Vinta Travel.">
+
+    <meta name="author"
+          content="Mariana Marín, Cynthia Sánchez">
+
+
+    <!-- =====================================================
+         ESTILOS DE LOS COMPONENTES NUEVOS
+    ====================================================== -->
+
+    <style>
+
+        .componentes-carrito {
+            padding: 60px 0;
+        }
+
+        .titulo-componente {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-componente {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #6c757d;
+        }
+
+
+        /* ================= MODAL ================= */
+
+        .vinta-modal .modal-content {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .vinta-modal .modal-header {
+            background: #075985;
+            color: white;
+            border: none;
+        }
+
+        .vinta-modal .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        .vinta-modal .modal-body {
+            padding: 30px;
+        }
+
+
+        /* ================= TABS / PILLS ================= */
+
+        .carrito-tabs .nav-pills {
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .carrito-tabs .nav-link {
+            color: #075985;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .carrito-tabs .nav-link.active {
+            background: #075985;
+            color: white;
+        }
+
+        .carrito-tab-content {
+            border: 1px solid #dbe7ee;
+            border-radius: 18px;
+            padding: 25px;
+            background: white;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .progreso-carrito {
+            background: #f4fafc;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .progreso-item {
+            margin-bottom: 22px;
+        }
+
+        .progreso-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .progreso-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .progreso-carrito .progress {
+            height: 18px;
+            border-radius: 20px;
+            background: #dfeef2;
+        }
+
+        .progreso-carrito .progress-bar {
+            background: #16865a;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .componentes-carrito {
+                padding: 40px 0;
+            }
+
+            .carrito-tab-content,
+            .progreso-carrito {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center fw-bold"
+                   href="index.html">
+
+                    <img src="logo.jpeg"
+                         alt="Logo de Vinta Travel"
+                         width="50"
+                         height="50"
+                         class="rounded-circle me-2">
+
+                    Vinta Travel
+
+                </a>
+
+
+                <!-- Botón Offcanvas -->
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#menuVinta"
+                        aria-controls="menuVinta"
+                        aria-label="Abrir menú">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+                <!-- Offcanvas -->
+
+                <div class="offcanvas offcanvas-end text-bg-primary"
+                     tabindex="-1"
+                     id="menuVinta"
+                     aria-labelledby="menuVintaLabel">
+
+
+                    <div class="offcanvas-header">
+
+                        <h5 class="offcanvas-title"
+                            id="menuVintaLabel">
+
+                            Vinta Travel
+
+                        </h5>
+
+
+                        <button type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Cerrar">
+                        </button>
+
+                    </div>
+
+
+                    <div class="offcanvas-body">
+
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="index.html">
+
+                                    Inicio
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="destinos.html">
+
+                                    Destinos
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="paquetes.html">
+
+                                    Paquetes
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="reservaciones.html">
+
+                                    Reservaciones
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="blog.html">
+
+                                    Blog
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link"
+                                   href="contacto.html">
+
+                                    Contacto
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a class="nav-link active"
+                                   aria-current="page"
+                                   href="carrito.html">
+
+                                    🛒 Carrito
+
+                                    <span class="badge bg-danger contador-carrito">
+                                        0
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item ms-lg-2">
+
+                                <a class="btn btn-light text-primary fw-semibold"
+                                   href="login.html">
+
+                                    Iniciar sesión
+
+                                </a>
+
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- ENCABEZADO -->
+
+        <section class="py-5 bg-light">
+
+            <div class="container text-center">
+
+                <span class="badge bg-info text-dark mb-3">
+
+                    TU SELECCIÓN
+
+                </span>
+
+
+                <h1 class="display-5 fw-bold">
+
+                    🛒 Carrito de compras
+
+                </h1>
+
+
+                <p class="lead text-muted">
+
+                    Revisa tus paquetes y continúa con tu reservación.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CARRITO
+        ====================================================== -->
+
+        <section class="py-5">
+
+            <div class="container">
+
+
+                <div class="row g-4">
+
+
+                    <!-- =================================================
+                         PRODUCTOS
+                    ================================================== -->
+
+                    <div class="col-lg-8">
+
+
+                        <div class="card border-0 shadow-sm">
+
+
+                            <div class="card-body p-0">
+
+
+                                <div class="table-responsive">
+
+
+                                    <table class="table table-hover align-middle mb-0">
+
+
+                                        <thead class="table-primary">
+
+
+                                            <tr>
+
+                                                <th scope="col">
+                                                    Producto
+                                                </th>
+
+                                                <th scope="col">
+                                                    Destino
+                                                </th>
+
+                                                <th scope="col">
+                                                    Precio
+                                                </th>
+
+                                                <th scope="col">
+                                                    Cantidad
+                                                </th>
+
+                                                <th scope="col">
+                                                    Acción
+                                                </th>
+
+                                            </tr>
+
+
+                                        </thead>
+
+
+                                        <!--
+                                            JAVASCRIPT COLOCARÁ AQUÍ
+                                            LOS PRODUCTOS DEL CARRITO
+                                        -->
+
+                                        <tbody id="listaCarrito">
+
+
+                                            <!-- CONTENIDO DE EJEMPLO -->
+
+                                            <tr>
+
+                                                <td class="fw-semibold">
+                                                    Paquete turístico
+                                                </td>
+
+                                                <td>
+                                                    Roma
+                                                </td>
+
+                                                <td>
+                                                    $20,000 MXN
+                                                </td>
+
+                                                <td>
+                                                    1
+                                                </td>
+
+                                                <td>
+
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-outline-danger"
+                                                            disabled>
+
+                                                        Eliminar
+
+                                                    </button>
+
+                                                </td>
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td class="fw-semibold">
+                                                    Tour adicional
+                                                </td>
+
+                                                <td>
+                                                    Roma
+                                                </td>
+
+                                                <td>
+                                                    $2,000 MXN
+                                                </td>
+
+                                                <td>
+                                                    1
+                                                </td>
+
+                                                <td>
+
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-outline-danger"
+                                                            disabled>
+
+                                                        Eliminar
+
+                                                    </button>
+
+                                                </td>
+
+                                            </tr>
+
+
+                                        </tbody>
+
+
+                                    </table>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         RESUMEN
+                    ================================================== -->
+
+                    <aside class="col-lg-4">
+
+
+                        <div class="card border-0 shadow-sm">
+
+
+                            <div class="card-body p-4">
+
+
+                                <h2 class="h4 fw-bold mb-3">
+
+                                    Resumen de compra
+
+                                </h2>
+
+
+                                <!--
+                                    JAVASCRIPT PODRÁ ACTUALIZAR
+                                    ESTE CONTENIDO
+                                -->
+
+                                <div class="list-group mb-4"
+                                     id="resumenCarrito">
+
+
+                                    <div class="list-group-item d-flex justify-content-between">
+
+                                        <span>
+                                            Paquete turístico
+                                        </span>
+
+                                        <strong>
+                                            $20,000 MXN
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="list-group-item d-flex justify-content-between">
+
+                                        <span>
+                                            Tour adicional
+                                        </span>
+
+                                        <strong>
+                                            $2,000 MXN
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="list-group-item d-flex justify-content-between">
+
+                                        <span>
+                                            Subtotal
+                                        </span>
+
+                                        <strong id="subtotalCarrito">
+                                            $22,000 MXN
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="list-group-item d-flex justify-content-between">
+
+                                        <span>
+                                            Impuestos
+                                        </span>
+
+                                        <strong id="impuestosCarrito">
+                                            $3,520 MXN
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="list-group-item d-flex justify-content-between">
+
+                                        <strong>
+                                            Total
+                                        </strong>
+
+
+                                        <strong class="text-primary"
+                                                id="totalCarrito">
+
+                                            $25,520 MXN
+
+                                        </strong>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <span class="badge bg-info text-dark mb-3">
+
+                                    RESERVACIÓN SEGURA
+
+                                </span>
+
+
+                                <!-- BOTÓN QUE ABRE MODAL -->
+
+                                <button type="button"
+                                        class="btn btn-primary w-100"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalCompra">
+
+                                    CONTINUAR RESERVACIÓN
+
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </aside>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             COMPONENTES INTERACTIVOS
+        ====================================================== -->
+
+        <section class="componentes-carrito">
+
+
+            <div class="container">
+
+
+                <!-- =================================================
+                     1. MODAL
+                ================================================== -->
+
+                <div class="text-center mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Finaliza tu compra
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Revisa la información de tu carrito antes
+                        de continuar con la reservación.
+
+                    </p>
+
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalCompra">
+
+                        Revisar compra
+
+                    </button>
+
+
+                </div>
+
+
+                <!-- MODAL -->
+
+                <div class="modal fade vinta-modal"
+                     id="modalCompra"
+                     tabindex="-1"
+                     aria-hidden="true">
+
+
+                    <div class="modal-dialog modal-dialog-centered">
+
+
+                        <div class="modal-content">
+
+
+                            <div class="modal-header">
+
+
+                                <h2 class="modal-title fs-5">
+
+                                    🛒 Confirmar reservación
+
+                                </h2>
+
+
+                                <button type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Cerrar">
+                                </button>
+
+
+                            </div>
+
+
+                            <div class="modal-body"
+                                 id="resumenModalCarrito">
+
+
+                                <p>
+
+                                    Estás a punto de continuar con tu
+                                    reservación para Roma.
+
+                                </p>
+
+
+                                <ul>
+
+                                    <li>
+                                        Paquete turístico: $20,000 MXN
+                                    </li>
+
+                                    <li>
+                                        Tour adicional: $2,000 MXN
+                                    </li>
+
+                                    <li>
+                                        Impuestos: $3,520 MXN
+                                    </li>
+
+                                </ul>
+
+
+                                <p>
+
+                                    <strong>
+                                        Total: $25,520 MXN
+                                    </strong>
+
+                                </p>
+
+
+                                <p class="mb-0">
+
+                                    Revisa los datos antes de continuar.
+
+                                </p>
+
+
+                            </div>
+
+
+                            <div class="modal-footer">
+
+
+                                <a href="reservaciones.html"
+                                   class="btn btn-primary">
+
+                                    Confirmar y continuar
+
+                                </a>
+
+
+                                <button type="button"
+                                        class="btn btn-secondary"
+                                        data-bs-dismiss="modal">
+
+                                    Revisar después
+
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     2. ACORDEÓN
+                ================================================== -->
+
+                <div class="mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Preguntas frecuentes
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Resuelve tus dudas sobre el proceso de compra.
+
+                    </p>
+
+
+                    <div class="accordion"
+                         id="carritoAccordion">
+
+
+                        <!-- PREGUNTA 1 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#carritoPregunta1">
+
+                                    ¿Qué incluye el total de mi compra?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="carritoPregunta1"
+                                 class="accordion-collapse collapse show"
+                                 data-bs-parent="#carritoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    El total incluye el paquete turístico,
+                                    los servicios adicionales y los
+                                    impuestos indicados en el resumen.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- PREGUNTA 2 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#carritoPregunta2">
+
+                                    ¿Puedo modificar mi selección?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="carritoPregunta2"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#carritoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Sí. Puedes regresar a las secciones
+                                    de paquetes y destinos para revisar
+                                    otras opciones antes de reservar.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- PREGUNTA 3 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#carritoPregunta3">
+
+                                    ¿Qué sucede después de continuar?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="carritoPregunta3"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#carritoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    Serás dirigido a la sección de
+                                    reservaciones para completar los
+                                    datos necesarios de tu viaje.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- PREGUNTA 4 -->
+
+                        <div class="accordion-item">
+
+
+                            <h3 class="accordion-header">
+
+
+                                <button class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#carritoPregunta4">
+
+                                    ¿La reservación es segura?
+
+                                </button>
+
+
+                            </h3>
+
+
+                            <div id="carritoPregunta4"
+                                 class="accordion-collapse collapse"
+                                 data-bs-parent="#carritoAccordion">
+
+
+                                <div class="accordion-body">
+
+                                    La página está diseñada para que
+                                    puedas revisar tu información antes
+                                    de continuar con la reservación.
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     3. TABS / PILLS
+                ================================================== -->
+
+                <div class="carrito-tabs mb-5">
+
+
+                    <h2 class="titulo-componente">
+
+                        Detalles de tu compra
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Consulta diferentes aspectos de tu selección.
+
+                    </p>
+
+
+                    <ul class="nav nav-pills"
+                        role="tablist">
+
+
+                        <!-- COMPRA -->
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link active"
+                                    type="button"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#detalleCompra">
+
+                                Compra
+
+                            </button>
+
+
+                        </li>
+
+
+                        <!-- SERVICIOS -->
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    type="button"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#detalleServicios">
+
+                                Servicios
+
+                            </button>
+
+
+                        </li>
+
+
+                        <!-- SEGURIDAD -->
+
+                        <li class="nav-item">
+
+
+                            <button class="nav-link"
+                                    type="button"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#detalleSeguridad">
+
+                                Seguridad
+
+                            </button>
+
+
+                        </li>
+
+
+                    </ul>
+
+
+                    <div class="tab-content carrito-tab-content">
+
+
+                        <!-- COMPRA -->
+
+                        <div class="tab-pane fade show active"
+                             id="detalleCompra">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                🛒 Tu compra
+
+                            </h3>
+
+
+                            <p>
+
+                                Has seleccionado un paquete turístico
+                                y un tour adicional para Roma.
+
+                            </p>
+
+
+                            <p class="mb-0">
+
+                                <strong>
+
+                                    Total: $25,520 MXN
+
+                                </strong>
+
+                            </p>
+
+
+                        </div>
+
+
+                        <!-- SERVICIOS -->
+
+                        <div class="tab-pane fade"
+                             id="detalleServicios">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                ✈️ Servicios incluidos
+
+                            </h3>
+
+
+                            <ul class="mb-0">
+
+                                <li>
+                                    Paquete turístico.
+                                </li>
+
+                                <li>
+                                    Tour adicional.
+                                </li>
+
+                                <li>
+                                    Servicios asociados a la reservación.
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+
+                        <!-- SEGURIDAD -->
+
+                        <div class="tab-pane fade"
+                             id="detalleSeguridad">
+
+
+                            <h3 class="h5 fw-bold">
+
+                                🔐 Reservación segura
+
+                            </h3>
+
+
+                            <p class="mb-0">
+
+                                Antes de continuar puedes revisar los
+                                servicios seleccionados, precios,
+                                impuestos y total de tu compra.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     4. PROGRESS BAR
+                ================================================== -->
+
+                <div>
+
+
+                    <h2 class="titulo-componente">
+
+                        Progreso de tu reservación
+
+                    </h2>
+
+
+                    <p class="subtitulo-componente">
+
+                        Estas son las etapas para completar tu viaje.
+
+                    </p>
+
+
+                    <div class="progreso-carrito">
+
+
+                        <!-- SELECCIÓN -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Selección del viaje
+                                </span>
+
+                                <span>
+                                    100%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 100%;"
+                                     aria-valuenow="100"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    100%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- CARRITO -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Revisión del carrito
+                                </span>
+
+                                <span>
+                                    100%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 100%;"
+                                     aria-valuenow="100"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    100%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- RESERVACIÓN -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Reservación
+                                </span>
+
+                                <span>
+                                    60%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 60%;"
+                                     aria-valuenow="60"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    60%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- CONFIRMACIÓN -->
+
+                        <div class="progreso-item">
+
+
+                            <div class="progreso-label">
+
+                                <span>
+                                    Confirmación
+                                </span>
+
+                                <span>
+                                    20%
+                                </span>
+
+                            </div>
+
+
+                            <div class="progress">
+
+
+                                <div class="progress-bar"
+                                     role="progressbar"
+                                     style="width: 20%;"
+                                     aria-valuenow="20"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+
+                                    20%
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="bg-dark text-white py-4 mt-5">
+
+
+        <div class="container">
+
+
+            <div class="row g-4">
+
+
+                <div class="col-md-6">
+
+
+                    <h5 class="fw-bold">
+
+                        Vinta Travel
+
+                    </h5>
+
+
+                    <p class="mb-0">
+
+                        ¡Tu viaje, tu mejor historia!
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="col-md-6 text-md-end">
+
+
+                    <h6 class="fw-semibold">
+
+                        Síguenos
+
+                    </h6>
+
+
+                    <p class="mb-0">
+
+                        ✉️ WhatsApp &nbsp; | &nbsp;
+                        Instagram &nbsp; | &nbsp;
+                        Facebook
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <hr>
+
+
+            <p class="text-center mb-0 small">
+
+                © 2026 Vinta Travel.
+                Todos los derechos reservados.
+
+            </p>
+
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT VINTA TRAVEL
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+```

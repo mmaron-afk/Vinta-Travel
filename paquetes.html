@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paquetes turísticos | Vinta Travel</title>
+
+    <meta name="description"
+          content="Conoce los paquetes turísticos de Vinta Travel con opciones de vuelos, hospedaje, actividades y diferentes destinos.">
+
+    <meta name="keywords"
+          content="paquetes turísticos, vuelos, hospedaje, viajes, vacaciones, Vinta Travel">
+
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="styles.css">
+
+
+    <meta name="description"
+          content="Paquetes turísticos de Vinta Travel.">
+
+    <meta name="keywords"
+          content="paquetes turísticos, viajes, vuelos, hoteles, tours">
+
+    <meta name="author"
+          content="Mariana Marín, Cynthia Sánchez">
+
+
+    <!-- =====================================================
+         ESTILOS SOLO PARA LOS COMPONENTES NUEVOS
+    ====================================================== -->
+
+    <style>
+
+        .componentes-paquetes {
+            padding: 60px 0;
+        }
+
+        .titulo-componente {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-componente {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #6c757d;
+        }
+
+
+        /* ================= MODAL ================= */
+
+        .vinta-modal .modal-content {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .vinta-modal .modal-header {
+            background: #075985;
+            color: white;
+            border: none;
+        }
+
+        .vinta-modal .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        .vinta-modal .modal-body {
+            padding: 30px;
+        }
+
+
+        /* ================= TABS ================= */
+
+        .paquetes-tabs .nav-pills {
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .paquetes-tabs .nav-link {
+            color: #075985;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+
+        .paquetes-tabs .nav-link.active {
+            background: #075985;
+            color: white;
+        }
+
+        .paquetes-tab-content {
+            border: 1px solid #dbe7ee;
+            border-radius: 18px;
+            padding: 25px;
+            background: white;
+        }
+
+        .mini-paquete {
+            height: 100%;
+            border: 1px solid #e3edf2;
+            border-radius: 14px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .mini-paquete img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .mini-paquete-info {
+            padding: 18px;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .progreso-paquetes {
+            background: #f4fafc;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .progreso-item {
+            margin-bottom: 22px;
+        }
+
+        .progreso-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .progreso-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .progreso-paquetes .progress {
+            height: 18px;
+            border-radius: 20px;
+            background: #dfeef2;
+        }
+
+        .progreso-paquetes .progress-bar {
+            background: #16865a;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .componentes-paquetes {
+                padding: 40px 0;
+            }
+
+            .paquetes-tab-content,
+            .progreso-paquetes {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg vinta-navbar">
+
+            <div class="container-fluid">
+
+
+                <a class="navbar-brand d-flex align-items-center"
+                   href="index.html">
+
+                    <img src="Logo.png"
+                         alt="Logo de Vinta Travel"
+                         width="50"
+                         height="50"
+                         class="logo-navbar">
+
+                    <span>
+                        Vinta Travel
+                    </span>
+
+                </a>
+
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#menuVinta"
+                        aria-controls="menuVinta"
+                        aria-label="Abrir menú">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+                <!-- MENÚ DESKTOP -->
+
+                <div class="collapse navbar-collapse justify-content-end">
+
+                    <ul class="navbar-nav align-items-lg-center">
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="index.html">
+
+                                Inicio
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="destinos.html">
+
+                                Destinos
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link active"
+                               href="paquetes.html">
+
+                                Paquetes
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="reservaciones.html">
+
+                                Reservaciones
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="blog.html">
+
+                                Blog
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="contacto.html">
+
+                                Contacto
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                               href="carrito.html">
+
+                                🛒 Carrito
+
+                                <span class="badge bg-danger contador-carrito">
+                                    0
+                                </span>
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item ms-lg-2">
+
+                            <a class="btn btn-login"
+                               href="login.html">
+
+                                Iniciar sesión
+
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         OFFCANVAS
+    ====================================================== -->
+
+    <div class="offcanvas offcanvas-end"
+         tabindex="-1"
+         id="menuVinta"
+         aria-labelledby="menuVintaLabel">
+
+
+        <div class="offcanvas-header">
+
+            <h2 class="offcanvas-title"
+                id="menuVintaLabel">
+
+                Vinta Travel
+
+            </h2>
+
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Cerrar menú">
+            </button>
+
+        </div>
+
+
+        <div class="offcanvas-body">
+
+            <nav aria-label="Menú principal">
+
+                <ul class="navbar-nav">
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="index.html">
+
+                            🏠 Inicio
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="destinos.html">
+
+                            🌎 Destinos
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="paquetes.html">
+
+                            ✈️ Paquetes
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="reservaciones.html">
+
+                            📅 Reservaciones
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="blog.html">
+
+                            📝 Blog
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="contacto.html">
+
+                            📞 Contacto
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="carrito.html">
+
+                            🛒 Carrito
+
+                            <span class="badge bg-danger contador-carrito">
+                                0
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item mt-3">
+
+                        <a class="btn btn-login w-100"
+                           href="login.html">
+
+                            Iniciar sesión
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main>
+
+
+        <div class="contenido-inicio">
+
+
+            <p class="busqueda">
+                🔍 Buscar paquete
+            </p>
+
+
+            <h2>
+                Paquetes
+            </h2>
+
+
+            <p>
+
+                Conoce nuestros paquetes con diferentes opciones
+                de vuelos, hospedaje y actividades.
+
+            </p>
+
+
+            <h3>
+                Nuestros paquetes
+            </h3>
+
+
+            <!-- =================================================
+                 PAQUETES ORIGINALES
+            ================================================== -->
+
+            <div class="row g-4">
+
+
+                <!-- =============================================
+                     PAQUETE MÉXICO
+                ============================================== -->
+
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <article class="destino-card">
+
+
+                        <img src="chichen-itza.jpeg"
+                             alt="Paquete turístico México"
+                             width="180"
+                             height="180">
+
+
+                        <h3>
+                            Paquete México
+                        </h3>
+
+
+                        <ul>
+
+                            <li>
+                                Vuelo
+                            </li>
+
+                            <li>
+                                Hotel
+                            </li>
+
+                            <li>
+                                Tour
+                            </li>
+
+                        </ul>
+
+
+                        <p class="precio">
+                            $8,500 MXN
+                        </p>
+
+
+                        <!-- JAVASCRIPT -->
+
+                        <button type="button"
+                                class="reservar"
+                                data-paquete="mexico">
+
+                            RESERVAR
+
+                        </button>
+
+
+                    </article>
+
+                </div>
+
+
+                <!-- =============================================
+                     PAQUETE EUROPA
+                ============================================== -->
+
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <article class="destino-card">
+
+
+                        <img src="roma.jpeg"
+                             alt="Paquete turístico Europa"
+                             width="180"
+                             height="180">
+
+
+                        <h3>
+                            Paquete Europa
+                        </h3>
+
+
+                        <ul>
+
+                            <li>
+                                Vuelo
+                            </li>
+
+                            <li>
+                                Hotel
+                            </li>
+
+                            <li>
+                                Traslados
+                            </li>
+
+                        </ul>
+
+
+                        <p class="precio">
+                            $32,000 MXN
+                        </p>
+
+
+                        <!-- JAVASCRIPT -->
+
+                        <button type="button"
+                                class="reservar"
+                                data-paquete="europa">
+
+                            RESERVAR
+
+                        </button>
+
+
+                    </article>
+
+                </div>
+
+
+                <!-- =============================================
+                     PAQUETE ASIA
+                ============================================== -->
+
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <article class="destino-card">
+
+
+                        <img src="taj-mahal.jpeg"
+                             alt="Paquete turístico Asia"
+                             width="180"
+                             height="180">
+
+
+                        <h3>
+                            Paquete Asia
+                        </h3>
+
+
+                        <ul>
+
+                            <li>
+                                Vuelo
+                            </li>
+
+                            <li>
+                                Hotel
+                            </li>
+
+                            <li>
+                                Actividades
+                            </li>
+
+                        </ul>
+
+
+                        <p class="precio">
+                            $35,000 MXN
+                        </p>
+
+
+                        <!-- JAVASCRIPT -->
+
+                        <button type="button"
+                                class="reservar"
+                                data-paquete="asia">
+
+                            RESERVAR
+
+                        </button>
+
+
+                    </article>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =====================================================
+                 COMPONENTES INTERACTIVOS
+            ====================================================== -->
+
+            <section class="componentes-paquetes">
+
+
+                <div class="container">
+
+
+                    <!-- =================================================
+                         1. MODAL
+                    ================================================== -->
+
+                    <div class="text-center mb-5">
+
+
+                        <h2 class="titulo-componente">
+                            Conoce nuestros paquetes
+                        </h2>
+
+
+                        <p class="subtitulo-componente">
+
+                            Encuentra una opción que se adapte
+                            a tu presupuesto y tipo de viaje.
+
+                        </p>
+
+
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalPaquetes">
+
+                            Ver información
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- MODAL -->
+
+                    <div class="modal fade vinta-modal"
+                         id="modalPaquetes"
+                         tabindex="-1">
+
+
+                        <div class="modal-dialog modal-dialog-centered">
+
+
+                            <div class="modal-content">
+
+
+                                <div class="modal-header">
+
+
+                                    <h2 class="modal-title fs-5">
+
+                                        ✈️ Información de paquetes
+
+                                    </h2>
+
+
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal">
+                                    </button>
+
+
+                                </div>
+
+
+                                <div class="modal-body">
+
+
+                                    <p>
+
+                                        Nuestros paquetes combinan
+                                        diferentes servicios para hacer
+                                        más sencilla la planeación de tu viaje.
+
+                                    </p>
+
+
+                                    <ul>
+
+                                        <li>
+                                            Paquete México: vuelo, hotel y tour.
+                                        </li>
+
+                                        <li>
+                                            Paquete Europa: vuelo, hotel y traslados.
+                                        </li>
+
+                                        <li>
+                                            Paquete Asia: vuelo, hotel y actividades.
+                                        </li>
+
+                                    </ul>
+
+
+                                    <p class="mb-0">
+
+                                        Elige el paquete que mejor
+                                        se adapte a tu viaje.
+
+                                    </p>
+
+
+                                </div>
+
+
+                                <div class="modal-footer">
+
+
+                                    <a href="reservaciones.html"
+                                       class="btn btn-primary">
+
+                                        Reservar
+
+                                    </a>
+
+
+                                    <button type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+
+                                        Cerrar
+
+                                    </button>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         2. ACORDEÓN
+                    ================================================== -->
+
+                    <div class="mb-5">
+
+
+                        <h2 class="titulo-componente">
+                            Preguntas frecuentes
+                        </h2>
+
+
+                        <p class="subtitulo-componente">
+
+                            Resuelve tus dudas antes de elegir
+                            tu paquete.
+
+                        </p>
+
+
+                        <div class="accordion"
+                             id="paquetesAccordion">
+
+
+                            <!-- PREGUNTA 1 -->
+
+                            <div class="accordion-item">
+
+
+                                <h3 class="accordion-header">
+
+
+                                    <button class="accordion-button"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#paquetePregunta1">
+
+                                        ¿Qué incluye un paquete turístico?
+
+                                    </button>
+
+
+                                </h3>
+
+
+                                <div id="paquetePregunta1"
+                                     class="accordion-collapse collapse show"
+                                     data-bs-parent="#paquetesAccordion">
+
+
+                                    <div class="accordion-body">
+
+                                        Dependiendo del paquete puede incluir
+                                        vuelo, hospedaje, tours, traslados
+                                        o diferentes actividades.
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- PREGUNTA 2 -->
+
+                            <div class="accordion-item">
+
+
+                                <h3 class="accordion-header">
+
+
+                                    <button class="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#paquetePregunta2">
+
+                                        ¿Puedo reservar un paquete?
+
+                                    </button>
+
+
+                                </h3>
+
+
+                                <div id="paquetePregunta2"
+                                     class="accordion-collapse collapse"
+                                     data-bs-parent="#paquetesAccordion">
+
+
+                                    <div class="accordion-body">
+
+                                        Sí. Puedes seleccionar el paquete
+                                        que prefieras y continuar con tu
+                                        reservación.
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- PREGUNTA 3 -->
+
+                            <div class="accordion-item">
+
+
+                                <h3 class="accordion-header">
+
+
+                                    <button class="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#paquetePregunta3">
+
+                                        ¿Los precios son por persona?
+
+                                    </button>
+
+
+                                </h3>
+
+
+                                <div id="paquetePregunta3"
+                                     class="accordion-collapse collapse"
+                                     data-bs-parent="#paquetesAccordion">
+
+
+                                    <div class="accordion-body">
+
+                                        Los precios mostrados son precios
+                                        de referencia. Consulta los detalles
+                                        de cada reservación antes de confirmar.
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         3. TABS / PILLS
+                    ================================================== -->
+
+                    <div class="paquetes-tabs mb-5">
+
+
+                        <h2 class="titulo-componente">
+                            Explora los paquetes por región
+                        </h2>
+
+
+                        <p class="subtitulo-componente">
+
+                            Selecciona una región para conocer
+                            nuestras opciones.
+
+                        </p>
+
+
+                        <ul class="nav nav-pills"
+                            role="tablist">
+
+
+                            <!-- AMÉRICA -->
+
+                            <li class="nav-item">
+
+
+                                <button class="nav-link active"
+                                        data-bs-toggle="pill"
+                                        data-bs-target="#america">
+
+                                    América
+
+                                </button>
+
+
+                            </li>
+
+
+                            <!-- EUROPA -->
+
+                            <li class="nav-item">
+
+
+                                <button class="nav-link"
+                                        data-bs-toggle="pill"
+                                        data-bs-target="#europa">
+
+                                    Europa
+
+                                </button>
+
+
+                            </li>
+
+
+                            <!-- ASIA -->
+
+                            <li class="nav-item">
+
+
+                                <button class="nav-link"
+                                        data-bs-toggle="pill"
+                                        data-bs-target="#asia">
+
+                                    Asia
+
+                                </button>
+
+
+                            </li>
+
+
+                        </ul>
+
+
+                        <div class="tab-content paquetes-tab-content">
+
+
+                            <!-- =================================================
+                                 AMÉRICA
+                            ================================================== -->
+
+                            <div class="tab-pane fade show active"
+                                 id="america">
+
+
+                                <div class="row g-4">
+
+
+                                    <div class="col-12 col-md-6 offset-md-3">
+
+
+                                        <article class="mini-paquete">
+
+
+                                            <img src="chichen-itza.jpeg"
+                                                 alt="Paquete México">
+
+
+                                            <div class="mini-paquete-info">
+
+
+                                                <h3>
+                                                    Paquete México
+                                                </h3>
+
+
+                                                <p>
+                                                    Vuelo, hotel y tour.
+                                                </p>
+
+
+                                                <strong>
+                                                    $8,500 MXN
+                                                </strong>
+
+
+                                            </div>
+
+
+                                        </article>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 EUROPA
+                            ================================================== -->
+
+                            <div class="tab-pane fade"
+                                 id="europa">
+
+
+                                <div class="row g-4">
+
+
+                                    <div class="col-12 col-md-6 offset-md-3">
+
+
+                                        <article class="mini-paquete">
+
+
+                                            <img src="roma.jpeg"
+                                                 alt="Paquete Europa">
+
+
+                                            <div class="mini-paquete-info">
+
+
+                                                <h3>
+                                                    Paquete Europa
+                                                </h3>
+
+
+                                                <p>
+                                                    Vuelo, hotel y traslados.
+                                                </p>
+
+
+                                                <strong>
+                                                    $32,000 MXN
+                                                </strong>
+
+
+                                            </div>
+
+
+                                        </article>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 ASIA
+                            ================================================== -->
+
+                            <div class="tab-pane fade"
+                                 id="asia">
+
+
+                                <div class="row g-4">
+
+
+                                    <div class="col-12 col-md-6 offset-md-3">
+
+
+                                        <article class="mini-paquete">
+
+
+                                            <img src="taj-mahal.jpeg"
+                                                 alt="Paquete Asia">
+
+
+                                            <div class="mini-paquete-info">
+
+
+                                                <h3>
+                                                    Paquete Asia
+                                                </h3>
+
+
+                                                <p>
+                                                    Vuelo, hotel y actividades.
+                                                </p>
+
+
+                                                <strong>
+                                                    $35,000 MXN
+                                                </strong>
+
+
+                                            </div>
+
+
+                                        </article>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================================
+                         4. PROGRESS BAR
+                    ================================================== -->
+
+                    <div>
+
+
+                        <h2 class="titulo-componente">
+                            Características de nuestros paquetes
+                        </h2>
+
+
+                        <p class="subtitulo-componente">
+
+                            Conoce algunos de los servicios que
+                            incorporamos en nuestras experiencias.
+
+                        </p>
+
+
+                        <div class="progreso-paquetes">
+
+
+                            <!-- VUELOS -->
+
+                            <div class="progreso-item">
+
+
+                                <div class="progreso-label">
+
+                                    <span>
+                                        Vuelos
+                                    </span>
+
+                                    <span>
+                                        90%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="progress">
+
+
+                                    <div class="progress-bar"
+                                         style="width: 90%">
+
+                                        90%
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- HOSPEDAJE -->
+
+                            <div class="progreso-item">
+
+
+                                <div class="progreso-label">
+
+                                    <span>
+                                        Hospedaje
+                                    </span>
+
+                                    <span>
+                                        85%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="progress">
+
+
+                                    <div class="progress-bar"
+                                         style="width: 85%">
+
+                                        85%
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- ACTIVIDADES -->
+
+                            <div class="progreso-item">
+
+
+                                <div class="progreso-label">
+
+                                    <span>
+                                        Actividades
+                                    </span>
+
+                                    <span>
+                                        80%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="progress">
+
+
+                                    <div class="progress-bar"
+                                         style="width: 80%">
+
+                                        80%
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="container">
+
+
+            <div class="row g-4">
+
+
+                <div class="col-12 col-md-4">
+
+
+                    <h3>
+                        Vinta Travel
+                    </h3>
+
+
+                    <p>
+                        ¡Tu viaje, tu mejor historia!
+                    </p>
+
+
+                    <p>
+
+                        Diseñamos experiencias y paquetes turísticos
+                        pensados para ti.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="col-12 col-md-4">
+
+
+                    <h3>
+                        Enlaces
+                    </h3>
+
+
+                    <ul class="footer-links">
+
+
+                        <li>
+
+                            <a href="index.html">
+                                Inicio
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="destinos.html">
+                                Destinos
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="paquetes.html">
+                                Paquetes
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="blog.html">
+                                Blog
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="contacto.html">
+                                Contacto
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+                <div class="col-12 col-md-4">
+
+
+                    <h3>
+                        Contáctanos
+                    </h3>
+
+
+                    <p>
+                        📱 WhatsApp
+                    </p>
+
+
+                    <p>
+                        📷 Instagram
+                    </p>
+
+
+                    <p>
+                        📘 Facebook
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="text-center">
+
+
+                <p class="mb-0">
+
+                    © 2026 Vinta Travel.
+                    Todos los derechos reservados.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT VINTA TRAVEL
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
